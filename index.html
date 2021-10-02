@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First web laboratory work</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mulish"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <section class="hero">
+      <div class="header__container">
+        <header class="header">
+          <nav class="header__nav">
+            <ul class="header__nav_list">
+              <li class="header__nav_item">
+                <a class="header__nav_link" href="">Home</a>
+              </li>
+              <li class="header__nav_item">
+                <a class="header__nav_link" href="">Find a doctor</a>
+              </li>
+              <li class="header__nav_item">
+                <a class="header__nav_link" href="">Apps</a>
+              </li>
+              <li class="header__nav_item">
+                <a class="header__nav_link" href="">Testimonials</a>
+              </li>
+              <li class="header__nav_item">
+                <a class="header__nav_link" href="">About us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__logo">
+            <h4 class="header__logo_txt">
+              <img
+                src="images/header_logo_icon.svg"
+                alt="T"
+                class="header__logo_icon"
+              />Trafalgar
+            </h4>
+          </div>
+        </header>
+      </div>
+
+      <div class="hero__container">
+        <div class="hero__text">
+          <h1 class="hero__heading">
+            Download our<br />
+            mobile apps
+          </h1>
+          <hr class="hero__line" />
+          <p class="hero__txt">
+            Our dedicated patient engagement app and web portal allow you to
+            access information instantaneously (no tedeous form, long calls, or
+            administrative hassle) and securely
+          </p>
+          <button class="download_button">
+            Download<img src="images/download_arrow.svg" />
+          </button>
+        </div>
+        <img
+          src="images/hero_image.svg"
+          alt="Download our mobile app"
+          class="hero__img"
+        />
+      </div>
+    </section>
+
+    <section class="latest_article">
+      <div class="latest_article__heading">
+        <h1 class="latest_article__heading_txt">Check our latest article</h1>
+        <hr class="latest_article__line" />
+      </div>
+      <div class="latest_article__articles">
+        <article class="latest_article__article_01">
+          <img
+            src="images/latest_article_01.svg"
+            alt="Blood analysis"
+            class="article_01_img"
+          />
+          <h2 class="latest_article__article_heading">
+            Disease detection, check up in the laboratory
+          </h2>
+          <p class="latest_article__article_txt">
+            In this case, the role of the health laboratory is very important to
+            do a disease detection...
+          </p>
+          <button class="latest_article__read_more">
+            Read more<img src="images/read_more_arrow.svg" />
+          </button>
+        </article>
+        <article class="latest_article__article_02">
+          <img
+            src="images/latest_article_02.svg"
+            alt="Microscopic studies"
+            class="article_02_img"
+          />
+          <h2 class="latest_article__article_heading">
+            Herbal medicines that are safe for consumption
+          </h2>
+          <p class="latest_article__article_txt">
+            Herbal medicine is very widely used at this time because of its very
+            good for your health...
+          </p>
+          <button class="latest_article__read_more">
+            Read more<img src="images/read_more_arrow.svg" />
+          </button>
+        </article>
+        <article class="latest_article__article_03">
+          <img
+            src="images/latest_article_03.svg"
+            alt="Face care mask"
+            class="article_03_img"
+          />
+          <h2 class="latest_article__article_heading">
+            Natural care for healthy facial skin
+          </h2>
+          <p class="latest_article__article_txt">
+            A healthy lifestyle should start from now and also for your skin
+            health. There are some...
+          </p>
+          <button class="latest_article__read_more">
+            Read more<img src="images/read_more_arrow.svg" />
+          </button>
+        </article>
+      </div>
+      <button class="latest_article__view_all">View all</button>
+    </section>
+
+    <section class="testimonials">
+      <div class="testimonials__testimonial">
+        <h3 class="testimonials__testimonial_heading">
+          What our customer are saying
+        </h3>
+        <hr class="testimonials__testimonial_line" />
+        <div class="testimonials__testimonial_content">
+          <img
+            src="images/testimonial_01.svg"
+            alt="Edward Newgate"
+            class="testimonial_01_img"
+          />
+          <div class="testimonials__testimonial_person">
+            <h5 class="testimonials__testimonial_name">Edward Newgate</h5>
+            <p class="testimonials__testimonial_title">Founder Circle</p>
+          </div>
+          <blockquote class="testimonials__testimonial_txt">
+            Our dedicated patient engagement app and web portal allow you to
+            access information instantaneously (no tedeous form, long calls, or
+            administrative hassle) and securely
+          </blockquote>
+        </div>
+      </div>
+      <nav class="testimonials__slider_nav">
+        <button class="testimonials__prev_button">
+          <img
+            class="testimonials__prev_arrow"
+            src="images/testimonials_arrow.svg"
+            alt="Previous"
+          />
+        </button>
+
+        <input
+          type="radio"
+          class="testimonials__slider_radio"
+          name="testimonial"
+          id="testimonial_1"
+          checked
+        />
+        <input
+          type="radio"
+          class="testimonials__slider_radio"
+          name="testimonial"
+          id="testimonial_2"
+        />
+        <input
+          type="radio"
+          class="testimonials__slider_radio"
+          name="testimonial"
+          id="testimonial_3"
+        />
+        <input
+          type="radio"
+          class="testimonials__slider_radio"
+          name="testimonial"
+          id="testimonial_4"
+        />
+        <button class="testimonials__next_button">
+          <img
+            class="testimonials__next_arrow"
+            src="images/testimonials_arrow.svg"
+            alt="Next"
+          />
+        </button>
+      </nav>
+    </section>
+    <footer class="footer">
+      <img src="images/footer_dots.svg" class="footer__dots_img" />
+      <img src="images/footer_logo_icon.svg" alt="T" />
+      <h4 class="footer__logo_txt">Trafalgar</h4>
+      <nav class="footer__nav">
+        <ul class="footer__nav_list">
+          <li class="footer__nav_item">
+            <a class="footer__nav_link" href="">Company</a>
+          </li>
+          <li class="footer__nav_item">
+            <a class="footer__nav_link" href="">Region</a>
+          </li>
+          <li class="footer__nav_item">
+            <a class="footer__nav_link" href="">Help</a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
