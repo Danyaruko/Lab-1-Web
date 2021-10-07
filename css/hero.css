@@ -1,0 +1,37 @@
+.hero__container {
+  margin-left: 13%;
+  margin-right: 13%;
+  display: flex;
+  align-items: center;
+}
+.download_button {
+  margin-right: auto;
+  margin-top: 44px;
+  height: 56px;
+  width: 200px;
+  background: #ffffff;
+  border-radius: 210px;
+  border-color: #458ff6;
+
+  color: #458ff6;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.hero__img {
+  width: 665px;
+  height: auto;
+  margin-left: auto;
+}
+.hero__line {
+  margin-top: 32px;
+  margin-bottom: 30px;
+  margin-left: 0;
+
+  border: none;
+  background-color: black;
+  color: black;
+  height: 2px;
+  width: 56px;
+  border-radius: 1px;
+}
