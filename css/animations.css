@@ -1,0 +1,35 @@
+@keyframes floating {
+  0% {
+    transform: translateY(50px);
+  }
+
+  50% {
+    transform: translateX(100px);
+  }
+
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+.download_button:hover {
+  background-color: #f3f8fe;
+  color: #5a98f2;
+  transition: 0.3s;
+  transform: scale(0.98);
+}
+.download_button:active {
+  transform: scale(0.95);
+  transition: all 0.3s;
+}
+
+.latest_article__view_all:hover {
+  background-color: #f3f8fe;
+  color: #5a98f2;
+  transition: 0.3s;
+  transform: scale(0.98);
+}
+.latest_article__view_all:active {
+  transform: scale(0.95);
+  transition: all 0.3s;
+}
