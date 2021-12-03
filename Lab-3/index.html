@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3</title>
+
+    <!-- My styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="actions-navigation">
+          <button>My Food Containers</button>
+          <button>Create Food Container</button>
+        </nav>
+        <div class="search-form">
+          <form>
+            <input
+              type="text"
+              class="search-form__text"
+              id="search_input"
+              placeholder="What kind of food container do you want?"
+            />
+            <button class="search-form__search-button" id="search_button">
+              Search
+            </button>
+            <button
+              class="search-form__cancel-button"
+              id="cancel_search_button"
+            >
+              Cancel
+            </button>
+          </form>
+        </div>
+      </header>
+    </div>
+    <section>
+      <div class="container">
+        <main>
+          <div class="food-containers-managment">
+            <h1>Manage food containers</h1>
+            <hr />
+            <div class="food-containers-managment__sorting">
+              <button
+                class="food-containers-managment__sorting__asc"
+                id="sort_asc_button"
+              >
+                Sort by volume in asc
+              </button>
+              <button
+                class="food-containers-managment__sorting__desc"
+                id="sort_desc_button"
+              >
+                Sort by volume in desc
+              </button>
+            </div>
+            <hr />
+            <div class="food-containers-managment__count">
+              <h2>Count total volume:</h2>
+              <button
+                class="food-containers-managment__count__button"
+                id="count_button"
+              >
+                Count
+              </button>
+              <div class="food-containers-managment__count__display">
+                <p>Total volume:</p>
+                <p id="total_volume">0 l</p>
+              </div>
+            </div>
+          </div>
+          <div class="food-containers-display" id="food_containers_list"></div>
+        </main>
+      </div>
+    </section>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>
