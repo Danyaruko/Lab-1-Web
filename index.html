@@ -9,41 +9,35 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Mulish"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
+  <body id="body">
     <section class="hero">
       <div class="header__container">
         <header class="header">
-          <nav class="header__nav">
-            <ul class="header__nav_list">
-              <li class="header__nav_item">
-                <a class="header__nav_link" href="">Home</a>
-              </li>
-              <li class="header__nav_item">
-                <a class="header__nav_link" href="">Find a doctor</a>
-              </li>
-              <li class="header__nav_item">
-                <a class="header__nav_link" href="">Apps</a>
-              </li>
-              <li class="header__nav_item">
-                <a class="header__nav_link" href="">Testimonials</a>
-              </li>
-              <li class="header__nav_item">
-                <a class="header__nav_link" href="">About us</a>
-              </li>
-            </ul>
-          </nav>
-
-          <div class="header__logo">
-            <h4 class="header__logo_txt">
-              <img
-                src="images/header_logo_icon.svg"
-                alt="T"
-                class="header__logo_icon"
-              />Trafalgar
-            </h4>
-          </div>
+            <div  onclick="toggleMenu()" id="header__burger" class="header__burger">
+                <span></span>
+            </div>
+            <div class="header__body">
+                <nav  id="nav-links" class="header__menu">
+                    <ul class="nav-ul">
+                        <li><a href="#" id="home" class="nav__header">Home</a></li> 
+                        <li><a href="#" class="nav__header">Find a doctor</a></li>
+                        <li><a href="#" class="nav__header">Apps</a></li>
+                        <li><a href="#" class="nav__header">Testimonials</a></li>
+                        <li><a href="#" class="nav__header">About</a></li>
+                    </ul>
+                </nav>
+                <div class="header__logo">
+                    <h4 class="header__logo_txt">
+                    <img
+                        src="images/header_logo_icon.svg"
+                        alt="T"
+                        class="header__logo_icon"
+                    />Trafalgar
+                    </h4>
+                </div>
+            </div>
         </header>
       </div>
 
@@ -81,7 +75,7 @@
           <img
             src="images/latest_article_01.svg"
             alt="Blood analysis"
-            class="article_01_img"
+            class="article_02_img"
           />
           <h2 class="latest_article__article_heading">
             Disease detection, check up in the laboratory
@@ -91,10 +85,10 @@
             do a disease detection...
           </p>
           <button class="latest_article__read_more">
-            Read more<img src="images/read_more_arrow.svg" />
+            Read more<img class="read_more" src="images/read_more_arrow.svg" />
           </button>
         </article>
-        <article class="latest_article__article_02">
+        <article class="latest_article__article_01">
           <img
             src="images/latest_article_02.svg"
             alt="Microscopic studies"
@@ -111,11 +105,11 @@
             Read more<img src="images/read_more_arrow.svg" />
           </button>
         </article>
-        <article class="latest_article__article_03">
+        <article class="latest_article__article_01">
           <img
             src="images/latest_article_03.svg"
             alt="Face care mask"
-            class="article_03_img"
+            class="article_02_img"
           />
           <h2 class="latest_article__article_heading">
             Natural care for healthy facial skin
@@ -146,7 +140,7 @@
           />
           <div class="testimonials__testimonial_person">
             <h5 class="testimonials__testimonial_name">Edward Newgate</h5>
-            <p class="testimonials__testimonial_title">Founder Circle</p>
+            <h5 class="testimonials__testimonial_title">Founder Circle</h5>
           </div>
           <blockquote class="testimonials__testimonial_txt">
             Our dedicated patient engagement app and web portal allow you to
@@ -216,5 +210,6 @@
         </ul>
       </nav>
     </footer>
+    <script  src="./js/index.js"></script>
   </body>
 </html>
