@@ -1,0 +1,65 @@
+.food-container-card {
+  margin: 4.875px;
+  padding: 15px;
+  background-color: greenyellow;
+  border-radius: 7.5px;
+
+  color: black;
+}
+
+.food-container-card__body__title {
+  font-size: 17px;
+  margin: 3.75px 0px;
+}
+
+.food-container-card__body__paragraph {
+  font-size: 15px;
+  margin: 10px 0px;
+}
+
+.food-container-card__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.food-container-card__edit-button {
+  background-color: black;
+  border-radius: 6px;
+  border: solid;
+  border-color: yellow;
+  border-width: 2.25px;
+  width: 90px;
+
+  padding: 5px 0px;
+
+  font-size: 13.5px;
+  color: yellow;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.food-container-card__edit-button:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.food-container-card__delete-button {
+  background-color: black;
+  border-radius: 6px;
+  border: solid;
+  border-color: red;
+  border-width: 2.25px;
+  width: 90px;
+
+  padding: 5px 0px;
+
+  font-size: 13.5px;
+  color: red;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.food-container-card__delete-button:hover {
+  background-color: red;
+  color: black;
+}
