@@ -13,8 +13,12 @@
     <div class="container">
       <header>
         <nav class="actions-navigation">
-          <button>My Food Containers</button>
-          <button>Create Food Container</button>
+          <button id="show_all_food-containers_button">
+            My Food Containers
+          </button>
+          <button id="create_food-container_button">
+            Create Food Container
+          </button>
         </nav>
         <div class="search-form">
           <form>
@@ -72,10 +76,182 @@
               </div>
             </div>
           </div>
-          <div class="food-containers-display" id="food_containers_list"></div>
+          <div class="food-containers-display" id="food-containers_list"></div>
         </main>
       </div>
     </section>
+    <section>
+      <div id="create_food-container_window" class="modal">
+        <div class="modal-create-food-container__content">
+          <div class="modal-create-food-container__header">
+            <h1>Create food container</h1>
+            <span
+              id="close_create_food-container_window_button"
+              class="modal__close-button"
+              >&times;</span
+            >
+          </div>
+          <div class="modal-create-food-container__body">
+            <form
+              id="create_food-container_form"
+              class="modal-create-food-container__body__form"
+            >
+              <label for="material">Material:</label>
+              <select name="materials" id="">
+                <option value="WOOD">WOOD</option>
+                <option value="METAL">METAL</option>
+                <option value="PLASTIC">PLASTIC</option>
+              </select>
+
+              <label for="country">Country:</label>
+              <select name="countries" id="">
+                <option value="CHINA">CHINA</option>
+                <option value="SWEDEN">SWEDEN</option>
+                <option value="UKRAINE">UKRAINE</option>
+              </select>
+
+              <label for="weight_in_grams">Weight(g):</label>
+              <input
+                id="create_weight_in_grams_input"
+                type="number"
+                name="weight_in_grams"
+              />
+              <p id="create_weight_in_grams_input_error" class="error_text"></p>
+
+              <label for="colour">Colour:</label>
+              <input id="create_colour_input" type="text" name="colour" />
+              <p id="create_colour_input_error" class="error_text"></p>
+
+              <label for="price_in_uah">Price(UAH):</label>
+              <input
+                id="create_price_in_uah_input"
+                type="number"
+                name="price_in_uah"
+              />
+              <p id="create_price_in_uah_input_error" class="error_text"></p>
+
+              <label for="volume_in_liters">Volume(L):</label>
+              <input
+                id="create_volume_in_liters_input"
+                type="number"
+                name="volume_in_liters"
+              />
+              <p
+                id="create_volume_in_liters_input_error"
+                class="error_text"
+              ></p>
+
+              <button
+                id="confirm_food-container_creation_button"
+                class="modal-create-food-container__body__form__button"
+              >
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="edit_food-container_window" class="modal">
+        <div class="modal-edit-food-container__content">
+          <div class="modal-edit-food-container__header">
+            <h1>Edit food container</h1>
+            <span
+              id="close_edit_food-container_window_button"
+              class="modal__close-button"
+              >&times;</span
+            >
+          </div>
+          <div class="modal-edit-food-container__body">
+            <form
+              id="edit_food-containers_form"
+              class="modal-edit-food-container__body__form"
+            >
+              <label for="material">Material:</label>
+              <select name="materials" id="">
+                <option value="WOOD">WOOD</option>
+                <option value="METAL">METAL</option>
+                <option value="PLASTIC">PLASTIC</option>
+              </select>
+              <label for="countries">Country type:</label>
+
+              <select name="countries" id="">
+                <option value="CHINA">CHINA</option>
+                <option value="SWEDEN">SWEDEN</option>
+                <option value="UKRAINE">UKRAINE</option>
+              </select>
+
+              <label for="weight_in_grams">Weight:</label>
+              <input
+                id="edit_weight_in_grams_input"
+                type="number"
+                name="weight_in_grams"
+              />
+              <p id="edit_weight_in_grams_input_error" class="error_text"></p>
+
+              <label for="colour">Colour:</label>
+              <input id="edit_colour_input" type="text" name="colour" />
+              <p id="edit_colour_input_error" class="error_text"></p>
+
+              <label for="price_in_uah">User name:</label>
+              <input
+                id="edit_price_in_uah_input"
+                type="number"
+                name="price_in_uah"
+              />
+              <p id="edit_price_in_uah_input_error" class="error_text"></p>
+
+              <label for="volume_in_liters">User age:</label>
+              <input
+                id="edit_volume_in_liters_input"
+                type="number"
+                name="volume_in_liters"
+              />
+              <p id="edit_volume_in_liters_input_error" class="error_text"></p>
+
+              <button
+                id="confirm_food-container_editing_button"
+                class="modal-edit-food-container__body__form__button"
+              >
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="delete_food-container_window" class="modal">
+        <div class="modal-delete-food-container__content">
+          <div class="modal-delete-food-container__header">
+            <h1>Delete food container?</h1>
+            <span
+              id="close_delete_food-container_window_button"
+              class="modal__close-button"
+              >&times;</span
+            >
+          </div>
+          <div class="modal-delete-food-container__body">
+            <div class="modal-delete-food-container__body__buttons">
+              <button
+                id="cancel_food-container_deletion_button"
+                class="modal-delete-food-container__body__cancel-button"
+              >
+                Cancel
+              </button>
+              <button
+                id="confirm_food-container_deletion_button"
+                class="modal-delete-food-container__body__confirm-button"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script type="module" src="js/index.js"></script>
   </body>
 </html>

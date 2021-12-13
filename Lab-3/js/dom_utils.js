@@ -1,5 +1,7 @@
-const foodContainersContainer = document.getElementById("food_containers_list");
+const foodContainersContainer = document.getElementById("food-containers_list");
 const totalVolumeDisplay = document.getElementById("total_volume");
+const editFoodContainerWindow = document.getElementById("edit_food-container_window");
+const deleteFoodContainerWindow = document.getElementById("delete_food-container_window");
 
 const getFoodContainerId = (id) => `food-container-${id}`;
 
@@ -22,8 +24,8 @@ const foodContainerTemplate = ({ id, material, country, weightInGrams, colour, p
      <p class="food-container-card__body__paragraph">Volume: ${volumeInL} L</p>
    </div>
    <div class="food-container-card__buttons">
-     <button class="food-container-card__edit-button id="edit_button_${id}>Edit</button>
-     <button class="food-container-card__delete-button id="delete_button_${id}>Delete</button>
+     <button class="food-container-card__edit-button" id="edit_button_${getFoodContainerId(id)}">Edit</button>
+     <button class="food-container-card__deletion-button" id="deletion_button_${getFoodContainerId(id)}">Delete</button>
    </div>
  </div>
 `;
@@ -49,4 +51,27 @@ export const renderFoodContainersList = (foodContainers) => {
  for (const foodContainer of foodContainers) {
    addFoodContainerToPage(foodContainer);
  }
+};
+
+ export const openModalWindow = (modalWindow) => {
+  modalWindow.style.display = "block";
+};
+
+export const closeModalWindow = (modalWindow) => {
+  modalWindow.style.display = "none";
+};
+
+export const renderButtons = () => {
+  let editButtons = document.getElementsByClassName("food-container-card__edit-button");
+  for (let button of editButtons) {
+    button.addEventListener("click", () => {
+      openModalWindow(editFoodContainerWindow);
+    });
+  }
+  let deleteButtons = document.getElementsByClassName("food-container-card__deletion-button");
+  for (let button of deleteButtons) {
+    button.addEventListener("click", () => {
+      openModalWindow(deleteFoodContainerWindow);
+    });
+  }
 };
