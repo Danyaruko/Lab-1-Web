@@ -1,6 +1,8 @@
 import { renderFoodContainersList, countTotalVolume, openModalWindow, 
-  closeModalWindow, renderButtons  } from "./dom_utils.js";
-import { validateCreateFoodContainerForm, validateEditFoodContainerForm } from "./input_validate.js";
+  closeModalWindow } from "./dom_utils.js";
+import { validateCreateFoodContainerForm, validateEditFoodContainerForm, getCreateInputValues,
+         getEditInputValues, setEditInputValues } from "./input_validate.js";
+import { getAllFoodContainers, postFoodContainer, updateFoodContainer, deleteFoodContainer } from "./api.js";
 
 
 const showAllFoodContainersButton = document.getElementById("show_all_food-containers_button");
@@ -20,62 +22,58 @@ const sortDescButton = document.getElementById("sort_desc_button");
 const countButton = document.getElementById("count_button");
 
 const editFoodContainerWindow = document.getElementById("edit_food-container_window");
+const editFoodContainerWindowHeaderText = document.getElementById("edit_food-container_window_header_text");
 const editFoodContainerForm = document.getElementById("edit_food-container_form");
 const confirmFoodContainerEditingButton = document.getElementById("confirm_food-container_editing_button");
 const closeEditFoodContainerWindowButton = document.getElementById("close_edit_food-container_window_button");
 
 const deleteFoodContainerWindow = document.getElementById("delete_food-container_window");
+const deleteFoodContainerWindowHeaderText = document.getElementById("delete_food-container_window_header_text");
 const confirmFoodContainerDeletionButton = document.getElementById("confirm_food-container_deletion_button");
 const cancelFoodContainerDeletionButton = document.getElementById("cancel_food-container_deletion_button");
 const closeDeleteFoodContainerWindowButton = document.getElementById("close_delete_food-container_window_button");
 
-//Sample food containers array
-let foodContainer1 = {
- id: 1,
- material: "WOOD",
- country: "CHINA",
- weightInGrams: 300,
- colour: "RED",
- priceInUah: 25,
- volumeInL: 1,
-};
-let foodContainer2 = {
- id: 2,
- material: "PLASTIC",
- country: "CHINA",
- weightInGrams: 300,
- colour: "RED",
- priceInUah: 25,
- volumeInL: 2,
-};
-let foodContainer3 = {
- id: 3,
- material: "PLASTIC",
- country: "CHINA",
- weightInGrams: 300,
- colour: "RED",
- priceInUah: 25,
- volumeInL: 3,
-};
-let foodContainer4 = {
- id: 4,
- material: "METAL",
- country: "CHINA",
- weightInGrams: 300,
- colour: "RED",
- priceInUah: 25,
- volumeInL: 14,
-};
-let foodContainers = [foodContainer1, foodContainer2, foodContainer3, foodContainer4, foodContainer1, foodContainer2, foodContainer3, foodContainer4, foodContainer1, foodContainer1];
-let currentFoodContainers = [...foodContainers];
+let foodContainers = [];
 
-window.onload = renderFoodContainersList(currentFoodContainers);
-renderButtons();
 
+ 
+const prepareDeleteFoodContainerWindow = async (id) => {
+  deleteFoodContainerWindowHeaderText.textContent = `Delete food container №${id}?`;
+  openModalWindow(deleteFoodContainerWindow);
+ 
+ confirmFoodContainerDeletionButton.addEventListener(
+    "click",
+    async () => {
+      await deleteFoodContainer(id);
+      closeModalWindow(deleteFoodContainerWindow);
+      refetchAllFoodContainers();
+    },
+    { once: true }
+  );
+ };
+ 
+const prepareUpdateFoodContainerWindow = (id) => {
+  editFoodContainerWindowHeaderText.textContent = `Edit food container №${id}`;
+  openModalWindow(editFoodContainerWindow);
+  setEditInputValues(foodContainers.find((foodContainer) => foodContainer.id == id));
+ 
+  confirmFoodContainerEditingButton.addEventListener(
+    "click",
+    async (event) => {
+      event.preventDefault();
+      if (validateEditFoodContainerForm()) {
+        await updateFoodContainer(id, getEditInputValues());
+        closeModalWindow(editFoodContainerWindow);
+        editFoodContainerForm.reset();
+        refetchAllFoodContainers();
+      }
+    },
+    { once: true }
+  );
+ };
+ 
 showAllFoodContainersButton.addEventListener("click", () => {
- currentFoodContainers = [...foodContainers];
- renderFoodContainersList(currentFoodContainers);
- renderButtons();
+ refetchAllFoodContainers();
 });
 
 createFoodContainerButton.addEventListener("click", () => {
@@ -83,11 +81,13 @@ createFoodContainerButton.addEventListener("click", () => {
  console.log("Sasi")
 });
 
-confirmFoodContainerCreationButton.addEventListener("click", (event) => {
+confirmFoodContainerCreationButton.addEventListener("click", async (event) => {
  event.preventDefault();
  if (validateCreateFoodContainerForm()) {
+   await postFoodContainer(getCreateInputValues());
    closeModalWindow(createFoodContainerWindow);
    createFoodContainerForm.reset();
+   refetchAllFoodContainers();
  }
 });
 
@@ -95,13 +95,7 @@ closeCreateFoodContainerWindowButton.addEventListener("click", () => {
  closeModalWindow(createFoodContainerWindow);
 });
 
-confirmFoodContainerEditingButton.addEventListener("click", (event) => {
- event.preventDefault();
- if (validateEditFoodContainerForm()) {
-   closeModalWindow(editFoodContainerWindow);
-   editFoodContainerForm.reset();
- }
-});
+
 
 closeEditFoodContainerWindowButton.addEventListener("click", () => {
  closeModalWindow(editFoodContainerWindow);
@@ -111,42 +105,45 @@ cancelFoodContainerDeletionButton.addEventListener("click", () => {
  closeModalWindow(deleteFoodContainerWindow);
 });
 
-confirmFoodContainerDeletionButton.addEventListener("click", () => {
- closeModalWindow(deleteFoodContainerWindow);
-});
-
 closeDeleteFoodContainerWindowButton.addEventListener("click", () => {
  closeModalWindow(deleteFoodContainerWindow);
 });
 
 
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", async (event) => {
  event.preventDefault();
- currentFoodContainers = foodContainers.filter((foodContainer) => foodContainer.material.includes(searchInput.value.toUpperCase()));
- renderFoodContainersList(currentFoodContainers);
+ foodContainers = await getAllFoodContainers();
+ foodContainers = foodContainers.filter((foodContainer) => foodContainer.material.includes(searchInput.value.toUpperCase()));
+ renderFoodContainersList(foodContainers, prepareDeleteFoodContainerWindow, prepareUpdateFoodContainerWindow);
 });
 
-cancelSearchButton.addEventListener("click", () => {
+cancelSearchButton.addEventListener("click", (event) => {
  event.preventDefault();
- currentFoodContainers = [...foodContainers];
  searchInput.value = "";
- renderFoodContainersList(currentFoodContainers);
+refetchAllFoodContainers();
 });
 
 sortAscButton.addEventListener("click", () => {
- currentFoodContainers = currentFoodContainers.sort((a, b) => {
+ foodContainers = foodContainers.sort((a, b) => {
    return b.volumeInL - a.volumeInL;
  });
- renderFoodContainersList(currentFoodContainers);
+ renderFoodContainersList(foodContainers, prepareDeleteFoodContainerWindow, prepareUpdateFoodContainerWindow);
 });
 
 sortDescButton.addEventListener("click", () => {
- currentFoodContainers = currentFoodContainers.sort((function (a, b) {
+ foodContainers = foodContainers.sort((function (a, b) {
    return a.volumeInL - b.volumeInL;
  }));
- renderFoodContainersList(currentFoodContainers);
+ renderFoodContainersList(foodContainers, prepareDeleteFoodContainerWindow, prepareUpdateFoodContainerWindow);
 });
 
 countButton.addEventListener("click", () => {
- countTotalVolume(currentFoodContainers);
+ countTotalVolume(foodContainers);
 });
+
+const refetchAllFoodContainers = async () => {
+  foodContainers = await getAllFoodContainers();
+  renderFoodContainersList(foodContainers, prepareDeleteFoodContainerWindow, prepareUpdateFoodContainerWindow);
+ }; 
+
+refetchAllFoodContainers();

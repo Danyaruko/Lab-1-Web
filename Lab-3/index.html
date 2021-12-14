@@ -97,17 +97,17 @@
               class="modal-create-food-container__body__form"
             >
               <label for="material">Material:</label>
-              <select name="materials" id="">
+              <select name="materials" id="create_material_input">
                 <option value="WOOD">WOOD</option>
                 <option value="METAL">METAL</option>
                 <option value="PLASTIC">PLASTIC</option>
               </select>
 
               <label for="country">Country:</label>
-              <select name="countries" id="">
-                <option value="CHINA">CHINA</option>
+              <select name="countries" id="create_country_input">
+                <option value="WESTERN_SAHARA">WESTERN_SAHARA</option>
                 <option value="SWEDEN">SWEDEN</option>
-                <option value="UKRAINE">UKRAINE</option>
+                <option value="RUSSIA">RUSSIA</option>
               </select>
 
               <label for="weight_in_grams">Weight(g):</label>
@@ -156,7 +156,9 @@
       <div id="edit_food-container_window" class="modal">
         <div class="modal-edit-food-container__content">
           <div class="modal-edit-food-container__header">
-            <h1>Edit food container</h1>
+            <h1 id="edit_food-container_window_header_text">
+              Edit food container
+            </h1>
             <span
               id="close_edit_food-container_window_button"
               class="modal__close-button"
@@ -165,21 +167,21 @@
           </div>
           <div class="modal-edit-food-container__body">
             <form
-              id="edit_food-containers_form"
+              id="edit_food-container_form"
               class="modal-edit-food-container__body__form"
             >
               <label for="material">Material:</label>
-              <select name="materials" id="">
+              <select name="materials" id="edit_material_input">
                 <option value="WOOD">WOOD</option>
                 <option value="METAL">METAL</option>
                 <option value="PLASTIC">PLASTIC</option>
               </select>
-              <label for="countries">Country type:</label>
+              <label for="countries">Country:</label>
 
-              <select name="countries" id="">
-                <option value="CHINA">CHINA</option>
+              <select name="countries" id="edit_country_input">
+                <option value="WESTERN_SAHARA">WESTERN_SAHARA</option>
                 <option value="SWEDEN">SWEDEN</option>
-                <option value="UKRAINE">UKRAINE</option>
+                <option value="RUSSIA">RUSSIA</option>
               </select>
 
               <label for="weight_in_grams">Weight:</label>
@@ -194,7 +196,7 @@
               <input id="edit_colour_input" type="text" name="colour" />
               <p id="edit_colour_input_error" class="error_text"></p>
 
-              <label for="price_in_uah">User name:</label>
+              <label for="price_in_uah">Price in UAH:</label>
               <input
                 id="edit_price_in_uah_input"
                 type="number"
@@ -202,7 +204,7 @@
               />
               <p id="edit_price_in_uah_input_error" class="error_text"></p>
 
-              <label for="volume_in_liters">User age:</label>
+              <label for="volume_in_liters">Volume in liters:</label>
               <input
                 id="edit_volume_in_liters_input"
                 type="number"
@@ -225,7 +227,9 @@
       <div id="delete_food-container_window" class="modal">
         <div class="modal-delete-food-container__content">
           <div class="modal-delete-food-container__header">
-            <h1>Delete food container?</h1>
+            <h1 id="delete_food-container_window_header_text">
+              Delete food container?
+            </h1>
             <span
               id="close_delete_food-container_window_button"
               class="modal__close-button"

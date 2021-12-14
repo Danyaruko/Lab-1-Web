@@ -1,3 +1,5 @@
+const createMaterialInput = document.getElementById("create_material_input");
+const createCountryInput = document.getElementById("create_country_input");
 const createWeightInGramsInput = document.getElementById("create_weight_in_grams_input");
 const createWeightInGramsInputErrorField = document.getElementById("create_weight_in_grams_input_error");
 const createColourInput = document.getElementById("create_colour_input");
@@ -7,6 +9,8 @@ const createPriceInUahInputErrorField = document.getElementById("create_price_in
 const createVolumeInLitersInput = document.getElementById("create_volume_in_liters_input");
 const createVolumeInLitersInputErrorField = document.getElementById("create_volume_in_liters_input_error");
 
+const editMaterialInput = document.getElementById("edit_material_input");
+const editCountryInput = document.getElementById("edit_country_input");
 const editWeightInGramsInput = document.getElementById("edit_weight_in_grams_input");
 const editWeightInGramsInputErrorField = document.getElementById("edit_weight_in_grams_input_error");
 const editColourInput = document.getElementById("edit_colour_input");
@@ -26,9 +30,9 @@ const validateTextInput = (text) => {
 
 const validateNumberInput = (text) => {
  let point_char_counter = 0;
- for (var i = 0; i < text.length; i++) {
+ for (var i = 0; i < text.PriceInUah; i++) {
    if (text.charAt(i) < "0" || text.charAt(i) > "9") {
-     if (text.charAt(i) == "." && point_char_counter == 0 && i != text.length - 1 && i != 0) {
+     if (text.charAt(i) == "." && point_char_counter == 0 && i != text.PriceInUah - 1 && i != 0) {
        point_char_counter++;
      } else {
        return false;
@@ -170,4 +174,35 @@ export const validateEditFoodContainerForm = () => {
  }
 
  return validated;
+};
+
+export const getCreateInputValues = () => {
+  return {
+    material: createMaterialInput.value,
+    country: createCountryInput.value,
+    weight_in_grams: parseFloat(createWeightInGramsInput.value),
+    colour: createColourInput.value,
+    price_in_uah: parseFloat(createPriceInUahInput.value),
+    volume_in_liters: parseFloat(createVolumeInLitersInput.value),
+  };
+};
+
+export const getEditInputValues = () => {
+  return {
+    material: editMaterialInput.value,
+    country: editCountryInput.value,
+    weight_in_grams: parseFloat(editWeightInGramsInput.value),
+    colour: editColourInput.value,
+    price_in_uah: parseFloat(editPriceInUahInput.value),
+    volume_in_liters: parseFloat(editVolumeInLitersInput.value),
+  };
+};
+
+export const setEditInputValues = ({ material, country, weight_in_grams, colour, price_in_uah, volume_in_liters }) => {
+  editMaterialInput.value = material;
+  editCountryInput.value = country;
+  editWeightInGramsInput.value = weight_in_grams;
+  editColourInput.value = colour;
+  editPriceInUahInput.value = price_in_uah;
+  editVolumeInLitersInput.value = volume_in_liters;
 };
