@@ -1,0 +1,7 @@
+@import "./normalize.min.css";
+
+@import "./global.css";
+@import "./header.css";
+@import "./main.css";
+@import "./card.css";
+@import "./modals.css";
