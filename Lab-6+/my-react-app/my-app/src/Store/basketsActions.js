@@ -1,0 +1,6 @@
+export const BUY_BASKET = "BUY_BASKET"
+export const ADD_BASKET = "ADD_BASKET"
+export const DELETE_BASKET = "DELETE_BASKET"
+export const DELETE_ALL = "DELETE_ALL"
+export const SET_LOGGED_TRUE = "SET_LOGGED_TRUE"
+export const SET_LOGGED_FALSE = "SET_LOGGED_FALSE"
