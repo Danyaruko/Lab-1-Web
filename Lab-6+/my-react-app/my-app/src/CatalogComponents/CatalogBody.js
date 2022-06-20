@@ -32,7 +32,7 @@ function CatalogBody() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 10)  
+        }, 1000)  
         axios.get(`http://localhost:3036/catalog/filters/${filter}`).then((response) => {
             console.log(filter)
             setBaskets(response.data) 

@@ -1,4 +1,4 @@
-.ticket-wrapper {
+.basket-wrapper {
     display: grid;  
     grid-template-columns: 15vw 11vw 5vw;
     background-color: rgb(255 220 220);
@@ -13,12 +13,12 @@
     border-radius: 5%;
 }
 
-.ticket-name {
+.basket-name {
     color: #d42d2d;
     font-size: 3vw;
 }
 
-.ticket-price {
+.basket-price {
     font-size: 1vw;
 }
 
@@ -34,14 +34,14 @@
     grid-template-columns: 3vw 5vw 3vw;
 }
 
-.tickets-amount {
+.baskets-amount {
     display: flex;
     font-size: 1.5vw;
     margin: 0 1.7vw;
     
 }
 
-.add-ticket {
+.add-basket {
     height: 2vw;
     width: 2vw;
     font-family: Montserrat;    
@@ -51,7 +51,7 @@
     background-color: transparent;
 }
 
-.delete-ticket {
+.delete-basket {
     height: 2vw;
     width: 2vw;
     font-family: Montserrat;    
